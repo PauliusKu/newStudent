@@ -6,6 +6,20 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/Paulius/CLionProjects/newStudent/Functions.cpp
+Functions.h
+C:/Users/Paulius/CLionProjects/newStudent/Functions.h
+
+C:/Users/Paulius/CLionProjects/newStudent/Functions.h
+string
+-
+random
+-
+chrono
+-
+vector
+-
+
 C:/Users/Paulius/CLionProjects/newStudent/Student.h
 string
 -
@@ -13,10 +27,40 @@ vector
 -
 utility
 -
+algorithm
+-
+numeric
+-
+Functions.h
+C:/Users/Paulius/CLionProjects/newStudent/Functions.h
+iomanip
+-
+
+C:/Users/Paulius/CLionProjects/newStudent/UI.cpp
+iostream
+-
+fstream
+-
+string
+-
+UI.h
+C:/Users/Paulius/CLionProjects/newStudent/UI.h
+
+C:/Users/Paulius/CLionProjects/newStudent/UI.h
+Student.h
+C:/Users/Paulius/CLionProjects/newStudent/Student.h
 
 C:/Users/Paulius/CLionProjects/newStudent/main.cpp
 iostream
 -
+fstream
+-
 Student.h
 C:/Users/Paulius/CLionProjects/newStudent/Student.h
+UI.h
+C:/Users/Paulius/CLionProjects/newStudent/UI.h
+random
+-
+chrono
+-
 

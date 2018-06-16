@@ -84,7 +84,19 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/Paulius/CLionProjects/newStudent/Functions.cpp">
+			<Option target="newStudent"/>
+		</Unit>
+		<Unit filename="C:/Users/Paulius/CLionProjects/newStudent/Functions.h">
+			<Option target="newStudent"/>
+		</Unit>
 		<Unit filename="C:/Users/Paulius/CLionProjects/newStudent/Student.h">
+			<Option target="newStudent"/>
+		</Unit>
+		<Unit filename="C:/Users/Paulius/CLionProjects/newStudent/UI.cpp">
+			<Option target="newStudent"/>
+		</Unit>
+		<Unit filename="C:/Users/Paulius/CLionProjects/newStudent/UI.h">
 			<Option target="newStudent"/>
 		</Unit>
 		<Unit filename="C:/Users/Paulius/CLionProjects/newStudent/main.cpp">

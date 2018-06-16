@@ -67,7 +67,7 @@ CMAKE_BINARY_DIR = C:\Users\Paulius\CLionProjects\newStudent\cmake-build-debug
 CMakeFiles\newStudent.dir\all:
 	$(MAKE) -f CMakeFiles\newStudent.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\newStudent.dir\depend
 	$(MAKE) -f CMakeFiles\newStudent.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\newStudent.dir\build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Paulius\CLionProjects\newStudent\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target newStudent"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Paulius\CLionProjects\newStudent\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4 "Built target newStudent"
 .PHONY : CMakeFiles\newStudent.dir\all
 
 # Include target in all.
@@ -77,7 +77,7 @@ all: CMakeFiles\newStudent.dir\all
 
 # Build rule for subdir invocation for target.
 CMakeFiles\newStudent.dir\rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Paulius\CLionProjects\newStudent\cmake-build-debug\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Paulius\CLionProjects\newStudent\cmake-build-debug\CMakeFiles 4
 	$(MAKE) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) CMakeFiles\newStudent.dir\all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Paulius\CLionProjects\newStudent\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles\newStudent.dir\rule
