@@ -41,6 +41,30 @@ public:
     {
         generate_2_strings(4, 20, Name_, Surename_);
     }
+    void set_name(std::string n = "")
+    {
+        Name_ = n;
+    }
+    void set_surename(std::string s = "")
+    {
+        Surename_ = s;
+    }
+    void set_Name_Surename()
+    {
+        std::cout << "Mokinio vardas: " << std::endl;
+        getline(std::cin, Name_);
+        std::cout << "Mokinio pavarde: " << std::endl;
+        getline(std::cin, Surename_);
+    }
+
+    std::string get_name()
+    {
+        return Name_;
+    }
+	std::string get_surename()
+    {
+        return "fbfdbfbfdb";
+    }
 };
 
 class Student : public Person {
@@ -51,6 +75,7 @@ private:
     double Final_Median_;
 
 public:
+
     /**
         * @brief      Constructor for an empty Student object
     */
@@ -63,17 +88,6 @@ public:
     /**
         * @brief      This function prints all Student's data
     */
-//    void print_Student()
-//    {
-//        print_Person();
-//        std::cout << "Marks_: " << std::endl;
-//        for (auto & itr : Marks_)
-//        {
-//            std::cout << itr << std::endl;
-//        }
-//        std::cout << "Exam_mark_: " << Exam_mark_ << std::endl;
-//        std::cout << "Finals: " << Final_Average_ << " " << Final_Median_ << std::endl;
-//    }
 
     void print_Student(std::ostream& s = std::cout, const bool finals = true)
     {
@@ -89,6 +103,15 @@ public:
             s << std::setprecision(2) << "Final average: " << Final_Average_ << std::endl;
             s << std::setprecision(2) << "Final median: " << Final_Median_ << std::endl;
         }
+    }
+
+	inline bool operator<(const Student & stud) { return stud.Final_Average_ - Final_Average_ < 0; }
+
+    void print_Student_Finals(std::ostream& s = std::cout)
+    {
+        s << std::fixed;
+        s << std::setprecision(2) << Final_Average_ <<" ";
+        s << std::setprecision(2) << Final_Median_;
     }
 
     void random_Student()
@@ -113,38 +136,55 @@ public:
             return (Marks_[Marks_.size()/2])*0.4+Exam_mark_*0.6;
         } else return (double)(Marks_[Marks_.size()/2] + (double)(Marks_[Marks_.size()/2-1]))/2*0.4+Exam_mark_*0.6;
     }
-};
-class FinalStudent : public Person{
-private:
-    unsigned int Final_mark_{};
-public:
-    /**
-        * @brief      Constructor for an empty FinalStudent object
-    */
-    FinalStudent() : Person{"", ""}, Final_mark_(0){}
-
-    /**
-        * @brief      Constructor for an filled FinalStudent object
-    */
-    FinalStudent(std::string n, std::string s, unsigned int e) : Person{n, s}, Final_mark_(e) {}
-
-    void print_FinalStudent(std::ostream& s = std::cout)
+    size_t get_marks_size()
     {
-        print_Person(s);
-        s << Final_mark_ << std::endl;
+        return Marks_.size();
     }
-
-    void random_FinalStudent()
+    void push_back(const unsigned int &val)
     {
-        random_Person();
-        std::mt19937 mt(static_cast<unsigned int>(time(nullptr)));
-        Final_mark_ = generate_u_int(1, 10, mt);
+        Marks_.push_back(val);
+    }
+    void set_Exam_mark(const unsigned int &val)
+    {
+        Exam_mark_ = val;
+    }
+    void calculate_finals()
+    {
+        Final_Median_ = get_median();
+        Final_Average_ = get_average();
     }
 };
+//class FinalStudent : public Person{
+//private:
+//    unsigned int Final_mark_{};
+//public:
+//    /**
+//        * @brief      Constructor for an empty FinalStudent object
+//    */
+//    FinalStudent() : Person{"", ""}, Final_mark_(0){}
+//
+//    /**
+//        * @brief      Constructor for an filled FinalStudent object
+//    */
+//    FinalStudent(std::string n, std::string s, unsigned int e) : Person{n, s}, Final_mark_(e) {}
+//
+//    void print_FinalStudent(std::ostream& s = std::cout)
+//    {
+//        print_Person(s);
+//        s << Final_mark_ << std::endl;
+//    }
+//
+//    void random_FinalStudent()
+//    {
+//        random_Person();
+//        std::mt19937 mt(static_cast<unsigned int>(time(nullptr)));
+//        Final_mark_ = generate_u_int(1, 10, mt);
+//    }
+//};
 
 typedef std::vector<Person> vector_p;
 typedef std::vector<Student> vector_s;
-typedef std::vector<FinalStudent> vector_f;
+//typedef std::vector<FinalStudent> vector_f;
 
 
 #endif //STUDENT_H

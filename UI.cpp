@@ -19,8 +19,8 @@ void UI()
             switch(a)
             {
                 case 1: generate_student(); a = 10; break;
-                case 2: a = 10; break;
-                case 3: a = 10; break;
+                case 2: input_student(); a = 10; break;
+                case 3: read_from_file(); a = 10; break;
                 case 4: //failo generavimas
                 {
                    size_t n{};
@@ -47,34 +47,22 @@ void UI()
                         std::cout << "Iveskite dydi x (10^x , Max 10^7): " << std::endl;
                         t = false;
                         try{
-                            a = intFromString(2, 7);
+                            size = intFromString(2, 7);
                         }catch (const char* msg) {
                             std::cout << msg << std::endl;
                             t = true;
                         }
                     }while (t);
                     std::cout << "1-----------------------------------------------------------------------------------" << std::endl;
-//                    for (unsigned int i = 2; i <= size; i++) {
-//                        //GeneruotiFaila(pow(10, i)); //generuoja faila
-//                        auto start = std::chrono::high_resolution_clock::now();
-//                        Failas < std::vector < Mokiniai >> (false);
-//                        auto end = std::chrono::high_resolution_clock::now();
-//                        cout << "Vector Dydis: " << std::setw(8) << (int) pow(10, i) << "  |  "
-//                             << std::chrono::duration<double>(end - start).count() << " sekundes" << endl;
-//                        auto start1 = std::chrono::high_resolution_clock::now();
-//                        Failas < std::deque < Mokiniai >> (false);
-//                        auto end1 = std::chrono::high_resolution_clock::now();
-//                        cout << "Deque  Dydis: " << std::setw(8) << (int) pow(10, i) << "  |  "
-//                             << std::chrono::duration<double>(end1 - start1).count() << " sekundes" << endl;
-//                        auto start2 = std::chrono::high_resolution_clock::now();
-//                        Failas < std::list < Mokiniai >> (false);
-//                        auto end2 = std::chrono::high_resolution_clock::now();
-//                        cout << "List   Dydis: " << std::setw(8) << (int) pow(10, i) << "  |  "
-//                             << std::chrono::duration<double>(end2 - start2).count() << " sekundes" << endl;
-//                        cout << "-----------------------------------------------------------------------------------"
-//                             << endl;
-//                    }
-                    //GeneruotiFaila(0); // sukuria tuscia faila
+                    for (unsigned int i = 2; i <= size; i++) {
+                        generate_file(pow(10, i)); //generuoja faila
+                        auto start = std::chrono::high_resolution_clock::now();
+                        read_from_file(false);
+                        auto end = std::chrono::high_resolution_clock::now();
+                        std::cout << "Vector Dydis: "<< std::setw(8)<< (int)pow(10, i) << "  |  "<< std::chrono::duration<double>(end-start).count() << " sekundes" << std::endl;
+
+                    }
+                    generate_file(0);; // sukuria tuscia faila
                     a = 10;
                     break;
                 }
@@ -126,12 +114,16 @@ unsigned int intFromString(int a, int b)
 
 void generate_student()
 {
+    std::cout << "Pasirinkote: random generavimas" << std::endl;
     Student s;
     s.random_Student();
     s.print_Student();
+    std::cout << "Funkcijos pabaiga" << std::endl;
+    std::cout << "-----------------------------------------------------------------------------------------------------------" << std::endl;
+
 }
 
-void generate_file(unsigned int& n)
+void generate_file(unsigned int n)
 {
     std::ofstream of("Failas.txt"); //irasymo pradzia
 
@@ -151,4 +143,132 @@ void generate_file(unsigned int& n)
         of << std::endl;
     }
     of.close();
+}
+
+void input_student()
+{
+    Student s;
+
+    s.set_Name_Surename();
+
+    std::cout << "Pasirinkote: ivestis per konsole. Noredami pabaigti pazymiu ivedima, iveskite 0" << std::endl;
+    unsigned int a = 0;
+    bool t = true;
+
+    do{ //ivedimas is konsoles
+        std::cout << s.get_marks_size()+1 << "-asis pazymys ";
+        try{
+            a = intFromString(0, 10);
+            if (a == 0)
+            {
+                if (s.get_marks_size() == 0)
+                {
+                    throw "Neivedete nei vieno pazymio";
+                } else t = false;
+                std::cout << "Pazymiu ivedimas baigtas" << std::endl;
+            } else s.push_back(a);
+        }catch (const char* msg) {
+            std::cout << msg << std::endl;
+        }
+    }while (t);
+
+    do{ //ivedimas is konsoles
+        std::cout << "Mokinio egzamino ivertinimas: ";
+        t = false;
+        try{
+            a = intFromString(1, 10);
+        }catch (const char* msg) {
+            std::cout << msg << std::endl;
+            t = true;
+        }
+    }while (t);
+    s.set_Exam_mark(a);
+    s.calculate_finals();
+    s.print_Student();
+
+    std::cout << "Funkcijos pabaiga" << std::endl;
+    std::cout << "-----------------------------------------------------------------------------------------------------------" << std::endl;
+}
+
+bool Less(Student &stud){
+    return stud.get_average() < 6;
+}
+
+bool customCompare(Student &stud1, Student &stud2){
+    return stud1.get_surename() < stud2.get_surename();
+}
+
+void read_from_file(const bool b)
+{
+    vector_s Stud;
+    //auto start = std::chrono::high_resolution_clock::now();
+    read_data(Stud);
+    //auto end = std::chrono::high_resolution_clock::now();
+    //std::cout << std::chrono::duration<double>(end-start).count() << " sekundes" << std::endl;
+
+    auto start1 = std::chrono::high_resolution_clock::now();
+    std::sort(Stud.begin(), Stud.end(), customCompare);
+    auto it = Stud.end();
+    auto pivot = std::stable_partition (Stud.begin(), Stud.end(), Less);
+
+    auto end1 = std::chrono::high_resolution_clock::now();
+    std::cout << std::chrono::duration<double>(end1-start1).count() << " sekundes" << std::endl;
+
+    vector_s Win(std::distance(pivot, Stud.end()));
+
+    std::copy(pivot, Stud.end(), Win.begin());
+
+    advance(it, -1);
+    advance(pivot, -1);
+    Stud.resize(Stud.size()-Win.size());
+
+    if (b)
+    {
+        std::cout << "LOSERS" << std::endl;
+        for (size_t i = 0; i < Stud.size(); i++)
+        {
+            Stud[i].print_Person();
+            Stud[i].print_Student_Finals();
+            std::cout << std::endl;
+        }
+        std::cout << "WINNERS" << std::endl;
+        for (size_t i = 0; i < Win.size(); i++)
+        {
+            Win[i].print_Person();
+            Win[i].print_Student_Finals();
+            std::cout << std::endl;
+        }
+    }
+}
+
+void read_data(vector_s &vect)
+{
+    std::ifstream myfile("Failas.txt");
+    while (!myfile.eof())
+    {
+        Student in;
+        std::string input{};
+        std::vector<std::string> words;
+        std::getline(myfile, input);
+        std::stringstream ss(input);
+
+        std::string temp;
+        while (ss >> temp)
+        {
+            words.push_back(temp);
+        }
+        if (words.size() > 3)
+        {
+            in.set_name(words[0]);
+            in.set_surename(words[1]);
+            for (size_t j = 2; j < words.size()-1; j++)
+            {
+               in.push_back((unsigned int)std::stoi(words[j]));
+            }
+            in.set_Exam_mark((unsigned int)std::stoi(words[words.size()-1]));
+            in.calculate_finals();
+            vect.push_back(in);
+        }
+    }
+    myfile.close();
 }
