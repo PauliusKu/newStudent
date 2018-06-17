@@ -124,6 +124,60 @@ newStudent\fast:
 	$(MAKE) -f CMakeFiles\newStudent.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\newStudent.dir\build
 .PHONY : newStudent\fast
 
+Functions.obj: Functions.cpp.obj
+
+.PHONY : Functions.obj
+
+# target to build an object file
+Functions.cpp.obj:
+	$(MAKE) -f CMakeFiles\newStudent.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\newStudent.dir\Functions.cpp.obj
+.PHONY : Functions.cpp.obj
+
+Functions.i: Functions.cpp.i
+
+.PHONY : Functions.i
+
+# target to preprocess a source file
+Functions.cpp.i:
+	$(MAKE) -f CMakeFiles\newStudent.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\newStudent.dir\Functions.cpp.i
+.PHONY : Functions.cpp.i
+
+Functions.s: Functions.cpp.s
+
+.PHONY : Functions.s
+
+# target to generate assembly for a file
+Functions.cpp.s:
+	$(MAKE) -f CMakeFiles\newStudent.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\newStudent.dir\Functions.cpp.s
+.PHONY : Functions.cpp.s
+
+UI.obj: UI.cpp.obj
+
+.PHONY : UI.obj
+
+# target to build an object file
+UI.cpp.obj:
+	$(MAKE) -f CMakeFiles\newStudent.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\newStudent.dir\UI.cpp.obj
+.PHONY : UI.cpp.obj
+
+UI.i: UI.cpp.i
+
+.PHONY : UI.i
+
+# target to preprocess a source file
+UI.cpp.i:
+	$(MAKE) -f CMakeFiles\newStudent.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\newStudent.dir\UI.cpp.i
+.PHONY : UI.cpp.i
+
+UI.s: UI.cpp.s
+
+.PHONY : UI.s
+
+# target to generate assembly for a file
+UI.cpp.s:
+	$(MAKE) -f CMakeFiles\newStudent.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\newStudent.dir\UI.cpp.s
+.PHONY : UI.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -160,6 +214,12 @@ help:
 	@echo ... newStudent
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... Functions.obj
+	@echo ... Functions.i
+	@echo ... Functions.s
+	@echo ... UI.obj
+	@echo ... UI.i
+	@echo ... UI.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

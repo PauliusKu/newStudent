@@ -88,17 +88,81 @@ CMakeFiles\newStudent.dir\main.cpp.obj.provides: CMakeFiles\newStudent.dir\main.
 CMakeFiles\newStudent.dir\main.cpp.obj.provides.build: CMakeFiles\newStudent.dir\main.cpp.obj
 
 
+CMakeFiles\newStudent.dir\UI.cpp.obj: CMakeFiles\newStudent.dir\flags.make
+CMakeFiles\newStudent.dir\UI.cpp.obj: ..\UI.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Paulius\CLionProjects\newStudent\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/newStudent.dir/UI.cpp.obj"
+	C:\PROGRA~2\MICROS~2\2017\COMMUN~1\VC\Tools\MSVC\1414~1.264\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\newStudent.dir\UI.cpp.obj /FdCMakeFiles\newStudent.dir\ /FS -c C:\Users\Paulius\CLionProjects\newStudent\UI.cpp
+<<
+
+CMakeFiles\newStudent.dir\UI.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/newStudent.dir/UI.cpp.i"
+	C:\PROGRA~2\MICROS~2\2017\COMMUN~1\VC\Tools\MSVC\1414~1.264\bin\Hostx86\x86\cl.exe > CMakeFiles\newStudent.dir\UI.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Paulius\CLionProjects\newStudent\UI.cpp
+<<
+
+CMakeFiles\newStudent.dir\UI.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/newStudent.dir/UI.cpp.s"
+	C:\PROGRA~2\MICROS~2\2017\COMMUN~1\VC\Tools\MSVC\1414~1.264\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\newStudent.dir\UI.cpp.s /c C:\Users\Paulius\CLionProjects\newStudent\UI.cpp
+<<
+
+CMakeFiles\newStudent.dir\UI.cpp.obj.requires:
+
+.PHONY : CMakeFiles\newStudent.dir\UI.cpp.obj.requires
+
+CMakeFiles\newStudent.dir\UI.cpp.obj.provides: CMakeFiles\newStudent.dir\UI.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\newStudent.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\newStudent.dir\UI.cpp.obj.provides.build
+.PHONY : CMakeFiles\newStudent.dir\UI.cpp.obj.provides
+
+CMakeFiles\newStudent.dir\UI.cpp.obj.provides.build: CMakeFiles\newStudent.dir\UI.cpp.obj
+
+
+CMakeFiles\newStudent.dir\Functions.cpp.obj: CMakeFiles\newStudent.dir\flags.make
+CMakeFiles\newStudent.dir\Functions.cpp.obj: ..\Functions.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Paulius\CLionProjects\newStudent\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/newStudent.dir/Functions.cpp.obj"
+	C:\PROGRA~2\MICROS~2\2017\COMMUN~1\VC\Tools\MSVC\1414~1.264\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\newStudent.dir\Functions.cpp.obj /FdCMakeFiles\newStudent.dir\ /FS -c C:\Users\Paulius\CLionProjects\newStudent\Functions.cpp
+<<
+
+CMakeFiles\newStudent.dir\Functions.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/newStudent.dir/Functions.cpp.i"
+	C:\PROGRA~2\MICROS~2\2017\COMMUN~1\VC\Tools\MSVC\1414~1.264\bin\Hostx86\x86\cl.exe > CMakeFiles\newStudent.dir\Functions.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Paulius\CLionProjects\newStudent\Functions.cpp
+<<
+
+CMakeFiles\newStudent.dir\Functions.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/newStudent.dir/Functions.cpp.s"
+	C:\PROGRA~2\MICROS~2\2017\COMMUN~1\VC\Tools\MSVC\1414~1.264\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\newStudent.dir\Functions.cpp.s /c C:\Users\Paulius\CLionProjects\newStudent\Functions.cpp
+<<
+
+CMakeFiles\newStudent.dir\Functions.cpp.obj.requires:
+
+.PHONY : CMakeFiles\newStudent.dir\Functions.cpp.obj.requires
+
+CMakeFiles\newStudent.dir\Functions.cpp.obj.provides: CMakeFiles\newStudent.dir\Functions.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\newStudent.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\newStudent.dir\Functions.cpp.obj.provides.build
+.PHONY : CMakeFiles\newStudent.dir\Functions.cpp.obj.provides
+
+CMakeFiles\newStudent.dir\Functions.cpp.obj.provides.build: CMakeFiles\newStudent.dir\Functions.cpp.obj
+
+
 # Object files for target newStudent
 newStudent_OBJECTS = \
-"CMakeFiles\newStudent.dir\main.cpp.obj"
+"CMakeFiles\newStudent.dir\main.cpp.obj" \
+"CMakeFiles\newStudent.dir\UI.cpp.obj" \
+"CMakeFiles\newStudent.dir\Functions.cpp.obj"
 
 # External object files for target newStudent
 newStudent_EXTERNAL_OBJECTS =
 
 newStudent.exe: CMakeFiles\newStudent.dir\main.cpp.obj
+newStudent.exe: CMakeFiles\newStudent.dir\UI.cpp.obj
+newStudent.exe: CMakeFiles\newStudent.dir\Functions.cpp.obj
 newStudent.exe: CMakeFiles\newStudent.dir\build.make
 newStudent.exe: CMakeFiles\newStudent.dir\objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Paulius\CLionProjects\newStudent\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable newStudent.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Paulius\CLionProjects\newStudent\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable newStudent.exe"
 	"C:\Program Files\JetBrains\CLion 2018.1.3\bin\cmake\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\newStudent.dir --manifests  -- C:\PROGRA~2\MICROS~2\2017\COMMUN~1\VC\Tools\MSVC\1414~1.264\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\newStudent.dir\objects1.rsp @<<
  /out:newStudent.exe /implib:newStudent.lib /pdb:C:\Users\Paulius\CLionProjects\newStudent\cmake-build-debug\newStudent.pdb /version:0.0  /machine:X86 /debug /INCREMENTAL /subsystem:console kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
 <<
@@ -109,6 +173,8 @@ CMakeFiles\newStudent.dir\build: newStudent.exe
 .PHONY : CMakeFiles\newStudent.dir\build
 
 CMakeFiles\newStudent.dir\requires: CMakeFiles\newStudent.dir\main.cpp.obj.requires
+CMakeFiles\newStudent.dir\requires: CMakeFiles\newStudent.dir\UI.cpp.obj.requires
+CMakeFiles\newStudent.dir\requires: CMakeFiles\newStudent.dir\Functions.cpp.obj.requires
 
 .PHONY : CMakeFiles\newStudent.dir\requires
 
