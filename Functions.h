@@ -12,7 +12,6 @@
 
 unsigned int generate_u_int(unsigned int, unsigned int,  std::mt19937&);
 std::vector<unsigned int> generate_vector_u_i (size_t, size_t, size_t);
-void generate_2_strings(size_t, size_t, std::string&, std::string&);
 std::string generate_string (size_t, size_t, std::mt19937&);
 
 #endif //NEWSTUDENT_FUNCTIONS_H

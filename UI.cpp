@@ -35,7 +35,10 @@ void UI()
                             t = true;
                         }
                     }while (t);
+                    auto start = std::chrono::high_resolution_clock::now();
                     generate_file(n);
+                    auto end = std::chrono::high_resolution_clock::now();
+                    std::cout << std::chrono::duration<double>(end-start).count() << " sekundes" << std::endl;
                     a = 10;
                     break;
                 }
@@ -55,7 +58,10 @@ void UI()
                     }while (t);
                     std::cout << "1-----------------------------------------------------------------------------------" << std::endl;
                     for (unsigned int i = 2; i <= size; i++) {
+                        auto start1 = std::chrono::high_resolution_clock::now();
                         generate_file(pow(10, i)); //generuoja faila
+                        auto end1 = std::chrono::high_resolution_clock::now();
+                        std::cout << std::chrono::duration<double>(end1-start1).count() << " sekundeees" << std::endl;
                         auto start = std::chrono::high_resolution_clock::now();
                         read_from_file(false);
                         auto end = std::chrono::high_resolution_clock::now();
@@ -80,20 +86,20 @@ unsigned int intFromString(int a, int b)
 
     do {
         try {
-            std::cin.exceptions(std::ifstream::failbit);
+            //std::cin.exceptions(std::ifstream::failbit);
             int c{};
             std::string num{};
             std::getline(std::cin, num);
 
             if (num == "")
             {
-                throw std::invalid_argument("nothing_here");
+                //throw std::invalid_argument("nothing_here");
             }
             for (unsigned int i = 0; i < num.size(); i++)
             {
                 if (((int)num[i] < 45 || (int)num[i] > 57) || ((int)num[i] > 45 && (int)num[i] < 48))
                 {
-                    throw std::invalid_argument("bad_input");
+                    //throw std::invalid_argument("bad_input");
                 }
             }
             c = std::stoi(num);
@@ -101,7 +107,7 @@ unsigned int intFromString(int a, int b)
             {
                 return c;
             }
-            else throw std::invalid_argument("too_big/small_number");
+            //else throw std::invalid_argument("too_big/small_number");
 
         }
         catch (std::invalid_argument& e)
@@ -109,7 +115,7 @@ unsigned int intFromString(int a, int b)
             std::cout << e.what() << std::endl;
             std::cout << "Please, rewrite your input:\n";
         }
-    } while (true);
+   } while (true);
 }
 
 void generate_student()
@@ -191,7 +197,7 @@ void input_student()
 }
 
 bool Less(Student &stud){
-    return stud.get_average() < 6;
+    return stud.check_student();
 }
 
 bool customCompare(Student &stud1, Student &stud2){
@@ -201,26 +207,23 @@ bool customCompare(Student &stud1, Student &stud2){
 void read_from_file(const bool b)
 {
     vector_s Stud;
-    //auto start = std::chrono::high_resolution_clock::now();
+    auto start = std::chrono::high_resolution_clock::now();
     read_data(Stud);
-    //auto end = std::chrono::high_resolution_clock::now();
-    //std::cout << std::chrono::duration<double>(end-start).count() << " sekundes" << std::endl;
+    auto end = std::chrono::high_resolution_clock::now();
+    std::cout << std::chrono::duration<double>(end-start).count() << " sekundes" << std::endl;
 
     auto start1 = std::chrono::high_resolution_clock::now();
-    std::sort(Stud.begin(), Stud.end(), customCompare);
-    auto it = Stud.end();
-    auto pivot = std::stable_partition (Stud.begin(), Stud.end(), Less);
+
+    auto pivot = std::partition (Stud.begin(), Stud.end(), Less);
 
     auto end1 = std::chrono::high_resolution_clock::now();
     std::cout << std::chrono::duration<double>(end1-start1).count() << " sekundes" << std::endl;
 
-    vector_s Win(std::distance(pivot, Stud.end()));
-
-    std::copy(pivot, Stud.end(), Win.begin());
-
-    advance(it, -1);
-    advance(pivot, -1);
+    vector_s Win(pivot, Stud.end());
     Stud.resize(Stud.size()-Win.size());
+
+    std::sort(Stud.begin(), Stud.end(), customCompare);
+    std::sort(Win.begin(), Win.end(), customCompare);
 
     if (b)
     {
@@ -244,14 +247,11 @@ void read_from_file(const bool b)
 void read_data(vector_s &vect)
 {
     std::ifstream myfile("Failas.txt");
-    while (!myfile.eof())
+    std::string input{};
+    while (std::getline(myfile, input))
     {
-        Student in;
-        std::string input{};
         std::vector<std::string> words;
-        std::getline(myfile, input);
         std::stringstream ss(input);
-
         std::string temp;
         while (ss >> temp)
         {
@@ -259,14 +259,14 @@ void read_data(vector_s &vect)
         }
         if (words.size() > 3)
         {
-            in.set_name(words[0]);
-            in.set_surename(words[1]);
+            std::string name = words[0], surename = words[1];
+            std::vector<unsigned int> marks;
             for (size_t j = 2; j < words.size()-1; j++)
             {
-               in.push_back((unsigned int)std::stoi(words[j]));
+               marks.push_back((unsigned int) std::stoi(words[j]));
             }
-            in.set_Exam_mark((unsigned int)std::stoi(words[words.size()-1]));
-            in.calculate_finals();
+            auto exam = (unsigned int) std::stoi(words[words.size()-1]);
+            Student in(name, surename, exam, marks);
             vect.push_back(in);
         }
     }

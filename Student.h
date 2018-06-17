@@ -27,7 +27,7 @@ public:
     /**
         * @brief      Constructor for an filled Person object
     */
-    explicit Person (std::string n = "", std::string s = "") : Name_(n), Surename_(s){}
+    explicit Person (std::string &n, std::string &s) : Name_(n), Surename_(s){}
 
     /**
         * @brief      This function prints all Person's data
@@ -39,15 +39,9 @@ public:
     }
     void random_Person()
     {
-        generate_2_strings(4, 20, Name_, Surename_);
-    }
-    void set_name(std::string n = "")
-    {
-        Name_ = n;
-    }
-    void set_surename(std::string s = "")
-    {
-        Surename_ = s;
+        std::mt19937 mt(static_cast<unsigned int>(time(nullptr)));
+        Name_ = generate_string(4, 15, mt);
+        Surename_ = generate_string(5, 20, mt);
     }
     void set_Name_Surename()
     {
@@ -57,13 +51,9 @@ public:
         getline(std::cin, Surename_);
     }
 
-    std::string get_name()
-    {
-        return Name_;
-    }
 	std::string get_surename()
     {
-        return "fbfdbfbfdb";
+        return Surename_;
     }
 };
 
@@ -79,12 +69,12 @@ public:
     /**
         * @brief      Constructor for an empty Student object
     */
-    Student() : Person{"", ""}, Exam_mark_(1), Final_Average_(1), Final_Median_(1) {}
+    Student() : Person{}, Exam_mark_(1), Final_Average_(1), Final_Median_(1) {}
 
     /**
         * @brief      Constructor for an filled Student object
     */
-    Student(std::string n, std::string s, unsigned int e, vector_u_i m) : Person{n, s}, Exam_mark_(e), Marks_(m), Final_Average_(get_average()), Final_Median_(get_median()) {}
+    Student(std::string &n, std::string &s, unsigned int &e, vector_u_i &m) : Person{n, s}, Exam_mark_(e), Marks_(m), Final_Average_(get_average()), Final_Median_(get_median()) {}
     /**
         * @brief      This function prints all Student's data
     */
@@ -153,38 +143,42 @@ public:
         Final_Median_ = get_median();
         Final_Average_ = get_average();
     }
+    inline bool check_student()
+    {
+        return Final_Average_ < 6;
+    }
 };
-//class FinalStudent : public Person{
-//private:
-//    unsigned int Final_mark_{};
-//public:
-//    /**
-//        * @brief      Constructor for an empty FinalStudent object
-//    */
-//    FinalStudent() : Person{"", ""}, Final_mark_(0){}
-//
-//    /**
-//        * @brief      Constructor for an filled FinalStudent object
-//    */
-//    FinalStudent(std::string n, std::string s, unsigned int e) : Person{n, s}, Final_mark_(e) {}
-//
-//    void print_FinalStudent(std::ostream& s = std::cout)
-//    {
-//        print_Person(s);
-//        s << Final_mark_ << std::endl;
-//    }
-//
-//    void random_FinalStudent()
-//    {
-//        random_Person();
-//        std::mt19937 mt(static_cast<unsigned int>(time(nullptr)));
-//        Final_mark_ = generate_u_int(1, 10, mt);
-//    }
-//};
+class FinalStudent : public Person{
+private:
+    unsigned int Final_mark_{};
+public:
+    /**
+        * @brief      Constructor for an empty FinalStudent object
+    */
+    FinalStudent() : Person{}, Final_mark_(0){}
+
+    /**
+        * @brief      Constructor for an filled FinalStudent object
+    */
+    FinalStudent(std::string n, std::string s, unsigned int e) : Person{n, s}, Final_mark_(e) {}
+
+    void print_FinalStudent(std::ostream& s = std::cout)
+    {
+        print_Person(s);
+        s << Final_mark_ << std::endl;
+    }
+
+    void random_FinalStudent()
+    {
+        random_Person();
+        std::mt19937 mt(static_cast<unsigned int>(time(nullptr)));
+        Final_mark_ = generate_u_int(1, 10, mt);
+    }
+};
 
 typedef std::vector<Person> vector_p;
 typedef std::vector<Student> vector_s;
-//typedef std::vector<FinalStudent> vector_f;
+typedef std::vector<FinalStudent> vector_f;
 
 
 #endif //STUDENT_H
