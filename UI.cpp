@@ -59,7 +59,7 @@ void UI()
                     std::cout << "1-----------------------------------------------------------------------------------" << std::endl;
                     for (unsigned int i = 2; i <= size; i++) {
                         auto start1 = std::chrono::high_resolution_clock::now();
-                        generate_file(pow(10, i)); //generuoja faila
+                        generate_file((unsigned int)pow(10, i)); //generuoja faila
                         auto end1 = std::chrono::high_resolution_clock::now();
                         std::cout << std::chrono::duration<double>(end1-start1).count() << " sekundeees" << std::endl;
                         auto start = std::chrono::high_resolution_clock::now();
@@ -105,7 +105,7 @@ unsigned int intFromString(int a, int b)
             c = std::stoi(num);
             if (c >= a && c <= b)
             {
-                return c;
+                return (unsigned int)c;
             }
             //else throw std::invalid_argument("too_big/small_number");
 
@@ -142,7 +142,7 @@ void generate_file(unsigned int n)
         of << generate_string(5, 20, mt) << " ";
 
         std::uniform_int_distribution<int> distint(1, 10);
-        for (int i = 0; i < (int)dist(mt)-95; i++) //generuoja pazymius
+        for (int j = 0; j < (int)dist(mt)-95; j++) //generuoja pazymius
         {
             of << distint(mt) << " ";
         }
@@ -207,17 +207,9 @@ bool customCompare(Student &stud1, Student &stud2){
 void read_from_file(const bool b)
 {
     vector_s Stud;
-    auto start = std::chrono::high_resolution_clock::now();
     read_data(Stud);
-    auto end = std::chrono::high_resolution_clock::now();
-    std::cout << std::chrono::duration<double>(end-start).count() << " sekundes" << std::endl;
-
-    auto start1 = std::chrono::high_resolution_clock::now();
 
     auto pivot = std::partition (Stud.begin(), Stud.end(), Less);
-
-    auto end1 = std::chrono::high_resolution_clock::now();
-    std::cout << std::chrono::duration<double>(end1-start1).count() << " sekundes" << std::endl;
 
     vector_s Win(pivot, Stud.end());
     Stud.resize(Stud.size()-Win.size());
