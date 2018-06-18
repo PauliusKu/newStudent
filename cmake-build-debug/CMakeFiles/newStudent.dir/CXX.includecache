@@ -19,6 +19,8 @@ chrono
 -
 vector
 -
+vector.h
+C:/Users/Paulius/CLionProjects/newStudent/vector.h
 
 C:/Users/Paulius/CLionProjects/newStudent/Student.h
 string
@@ -35,6 +37,8 @@ Functions.h
 C:/Users/Paulius/CLionProjects/newStudent/Functions.h
 iomanip
 -
+vector.h
+C:/Users/Paulius/CLionProjects/newStudent/vector.h
 
 C:/Users/Paulius/CLionProjects/newStudent/UI.cpp
 iostream
@@ -63,4 +67,20 @@ Student.h
 C:/Users/Paulius/CLionProjects/newStudent/Student.h
 UI.h
 C:/Users/Paulius/CLionProjects/newStudent/UI.h
+
+C:/Users/Paulius/CLionProjects/newStudent/vector.h
+initializer_list
+-
+algorithm
+-
+iterator
+-
+exception
+-
+memory
+-
+cstddef
+-
+utility
+-
 

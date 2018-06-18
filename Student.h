@@ -12,14 +12,16 @@
 #include <numeric>
 #include "Functions.h"
 #include <iomanip>
+#include "vector.h"
 
-typedef std::vector<unsigned int> vector_u_i;
+typedef newvector<unsigned int> vector_u_i;
 
 class Person{
 private:
     std::string Name_;
     std::string Surname_;
 public:
+    virtual int v() = 0;
     /**
         * @brief      Constructor for an empty Person object
     */
@@ -68,7 +70,7 @@ private:
     double Final_Median_;
 
 public:
-
+    virtual int v(){return 0; }
     /**
         * @brief      Constructor for an empty Student object
     */

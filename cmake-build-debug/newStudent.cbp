@@ -102,6 +102,9 @@
 		<Unit filename="C:/Users/Paulius/CLionProjects/newStudent/main.cpp">
 			<Option target="newStudent"/>
 		</Unit>
+		<Unit filename="C:/Users/Paulius/CLionProjects/newStudent/vector.h">
+			<Option target="newStudent"/>
+		</Unit>
 		<Unit filename="C:/Users/Paulius/CLionProjects/newStudent/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

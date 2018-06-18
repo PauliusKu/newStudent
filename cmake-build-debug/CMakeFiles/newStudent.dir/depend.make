@@ -3,14 +3,17 @@
 
 CMakeFiles\newStudent.dir\Functions.cpp.obj: ..\Functions.cpp
 CMakeFiles\newStudent.dir\Functions.cpp.obj: ..\Functions.h
+CMakeFiles\newStudent.dir\Functions.cpp.obj: ..\vector.h
 
 CMakeFiles\newStudent.dir\UI.cpp.obj: ..\Functions.h
 CMakeFiles\newStudent.dir\UI.cpp.obj: ..\Student.h
 CMakeFiles\newStudent.dir\UI.cpp.obj: ..\UI.cpp
 CMakeFiles\newStudent.dir\UI.cpp.obj: ..\UI.h
+CMakeFiles\newStudent.dir\UI.cpp.obj: ..\vector.h
 
 CMakeFiles\newStudent.dir\main.cpp.obj: ..\Functions.h
 CMakeFiles\newStudent.dir\main.cpp.obj: ..\Student.h
 CMakeFiles\newStudent.dir\main.cpp.obj: ..\UI.h
 CMakeFiles\newStudent.dir\main.cpp.obj: ..\main.cpp
+CMakeFiles\newStudent.dir\main.cpp.obj: ..\vector.h
 

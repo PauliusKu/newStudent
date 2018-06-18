@@ -38,7 +38,7 @@ void UI()
                     auto start = std::chrono::high_resolution_clock::now();
                     generate_file(n);
                     auto end = std::chrono::high_resolution_clock::now();
-                    std::cout << std::chrono::duration<double>(end-start).count() << " sekundes" << std::endl;
+                    std::cout << " Generavimas truko: " << std::chrono::duration<double>(end-start).count() << " sekundes" << std::endl;
                     a = 10;
                     break;
                 }
@@ -61,7 +61,7 @@ void UI()
                         auto start1 = std::chrono::high_resolution_clock::now();
                         generate_file((unsigned int)pow(10, i)); //generuoja faila
                         auto end1 = std::chrono::high_resolution_clock::now();
-                        std::cout << std::chrono::duration<double>(end1-start1).count() << " sekundeees" << std::endl;
+                        std::cout << " Generavimas truko: " << std::chrono::duration<double>(end1-start1).count() << " sekundes" << std::endl;
                         auto start = std::chrono::high_resolution_clock::now();
                         read_from_file(false);
                         auto end = std::chrono::high_resolution_clock::now();
@@ -252,7 +252,7 @@ void read_data(vector_s &vect)
         if (words.size() > 3)
         {
             std::string name = words[0], surename = words[1];
-            std::vector<unsigned int> marks;
+            vector_u_i marks;
             for (size_t j = 2; j < words.size()-1; j++)
             {
                marks.push_back((unsigned int) std::stoi(words[j]));
